@@ -23,6 +23,9 @@
                 "iconPath" : "images/notifications/error.png"
             }
         },
-        "defaultNotificationType" : "info"
+        "defaultNotificationType" : "info",
+        "kbaVerificationEnabled" : true,
+        "kbaEnabled" : true,
+        "kbaDefinitionEnabled" : true
     }
 }
