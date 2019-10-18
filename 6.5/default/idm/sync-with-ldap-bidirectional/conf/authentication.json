@@ -16,21 +16,7 @@
                 "properties" : {
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
-                    "password" : {
-                        "$crypto" : {
-                            "type" : "x-simple-encryption",
-                            "value" : {
-                                "cipher" : "AES/CBC/PKCS5Padding",
-                                "stableId" : "openidm-sym-default",
-                                "salt" : "9ga7ZOg/jh9Dd2wEJBh9Tw==",
-                                "data" : "oohkPi9e1R+WLi+B+Rqg/Q==",
-                                "keySize" : 16,
-                                "purpose" : "idm.config.encryption",
-                                "iv" : "laOKfLSfkKbNKRHZpKdRfA==",
-                                "mac" : "5gBe9mhhDXXBe6qn0tqxZQ=="
-                            }
-                        }
-                    },
+                    "password" : "anonymous",
                     "defaultUserRoles" : [
                         "internal/role/openidm-reg"
                     ]
@@ -141,21 +127,7 @@
                         ],
                         "authenticationIdKey" : "sub",
                         "clientId" : "openidm",
-                        "clientSecret" : {
-                            "$crypto" : {
-                                "type" : "x-simple-encryption",
-                                "value" : {
-                                    "cipher" : "AES/CBC/PKCS5Padding",
-                                    "stableId" : "openidm-sym-default",
-                                    "salt" : "xJr9r0b/It9rw8GmtUFHzw==",
-                                    "data" : "0W9UCyyg6SWQu8NJ4ZHz5Q==",
-                                    "keySize" : 16,
-                                    "purpose" : "idm.config.encryption",
-                                    "iv" : "3QwZXFQgUj6vctL35GKvGg==",
-                                    "mac" : "fwcA1wXZye3QEeuK130svg=="
-                                }
-                            }
-                        },
+                        "clientSecret" : "openidm",
                         "authorizationEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/authorize",
                         "tokenEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/access_token",
                         "endSessionEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/connect/endSession",
@@ -167,7 +139,7 @@
                     },
                     "queryOnResource" : "system/ldap/account"
                 },
-                "enabled" : true
+                "enabled" : false
             }
         ]
     }
