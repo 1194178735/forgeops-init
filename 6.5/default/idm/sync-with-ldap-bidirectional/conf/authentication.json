@@ -139,7 +139,7 @@
                     },
                     "queryOnResource" : "system/ldap/account"
                 },
-                "enabled" : true
+                "enabled" : false
             }
         ]
     }
