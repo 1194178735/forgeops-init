@@ -131,7 +131,7 @@
                         "authorizationEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/authorize",
                         "tokenEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/access_token",
                         "endSessionEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/Ameren/connect/endSession",
-                        "wellKnownEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/ameren/.well-known/openid-configuration",
+                        "wellKnownEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/Ameren/.well-known/openid-configuration",
                         "redirectUri" : "https://openidm.dev-walter.amerentest.com:443",
                         "configClass" : "org.forgerock.oauth.clients.oidc.OpenIDConnectClientConfiguration",
                         "displayIcon" : "forgerock",
