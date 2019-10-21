@@ -6,8 +6,8 @@
                 "sessionOnly" : true,
                 "isHttpOnly" : true,
                 "enableDynamicRoles" : false,
-                "maxTokenLifeSeconds" : "5",
-                "tokenIdleTimeSeconds" : "5"
+                "maxTokenLifeSeconds" : "5000",
+                "tokenIdleTimeSeconds" : "5000"
             }
         },
         "authModules" : [
