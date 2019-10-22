@@ -5,7 +5,6 @@
                 "type" : "text/javascript",
                 "source" : "context.caller.external === true || context.current.name === 'selfservice'"
             },
-            "evaluatePrivileges" : true,
             "onRequest" : {
                 "type" : "text/javascript",
                 "source" : "require('router-authz').testAccess()"
