@@ -28,11 +28,10 @@
             "identityServiceUrl" : "managed/user"
         },
         {
-            "name" : "openAMAutoLogin",
+            "name" : "localAutoLogin",
             "identityUsernameField" : "userName",
             "identityPasswordField" : "password",
-            "openAMBaseUrl" : "https://login.dev-walter.amerentest.com/",
-            "authenticationEndpoint" : "json/realms/root/realms/ameren/authenticate"
+            "successUrl" : ""
         }
     ],
     "snapshotToken" : {
