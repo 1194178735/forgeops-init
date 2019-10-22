@@ -3,11 +3,10 @@
         "sessionModule" : {
             "name" : "JWT_SESSION",
             "properties" : {
+                "maxTokenLifeMinutes" : 120,
+                "tokenIdleTimeMinutes" : 30,
                 "sessionOnly" : true,
-                "isHttpOnly" : true,
-                "enableDynamicRoles" : false,
-                "maxTokenLifeSeconds" : "500",
-                "tokenIdleTimeSeconds" : "500"
+                "isHttpOnly" : true
             }
         },
         "authModules" : [
@@ -17,16 +16,14 @@
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
                     "password" : "anonymous",
-                    "defaultUserRoles" : [
-                        "internal/role/openidm-reg"
-                    ]
+                    "defaultUserRoles" : [ "internal/role/openidm-reg" ]
                 },
                 "enabled" : true
             },
             {
                 "name" : "MANAGED_USER",
                 "properties" : {
-                    "augmentSecurityContext" : {
+                    "augmentSecurityContext": {
                         "type" : "text/javascript",
                         "source" : "require('auth/customAuthz').setProtectedAttributes(security)"
                     },
@@ -39,7 +36,7 @@
                     },
                     "defaultUserRoles" : [ ]
                 },
-                "enabled" : false
+                "enabled" : true
             },
             {
                 "name" : "INTERNAL_USER",
@@ -58,7 +55,7 @@
             {
                 "name" : "PASSTHROUGH",
                 "properties" : {
-                    "augmentSecurityContext" : {
+                    "augmentSecurityContext": {
                         "type" : "text/javascript",
                         "file" : "auth/populateAsManagedUser.js"
                     },
@@ -71,7 +68,7 @@
                         "internal/role/openidm-authorized"
                     ]
                 },
-                "enabled" : false
+                "enabled" : true
             },
             {
                 "name" : "SOCIAL_PROVIDERS",
@@ -88,7 +85,7 @@
                         "userRoles" : "authzRoles"
                     }
                 },
-                "enabled" : false
+                "enabled" : true
             },
             {
                 "name" : "STATIC_USER",
@@ -101,45 +98,6 @@
                     ]
                 },
                 "enabled" : true
-            },
-            {
-                "name" : "OAUTH_CLIENT",
-                "properties" : {
-                    "augmentSecurityContext" : {
-                        "type" : "text/javascript",
-                        "globals" : {
-                            "sessionValidationBaseEndpoint" : "https://login.dev-walter.amerentest.com/json/ameren/sessions/"
-                        },
-                        "file" : "auth/amSessionCheck.js"
-                    },
-                    "propertyMapping" : {
-                        "authenticationId" : "uid",
-                        "userRoles" : "authzRoles"
-                    },
-                    "defaultUserRoles" : [
-                        "internal/role/openidm-authorized"
-                    ],
-                    "idpConfig" : {
-                        "provider" : "OPENAM",
-                        "icon" : "<button class=\"btn btn-lg btn-default btn-block btn-social-provider\"><img src=\"images/forgerock_logo.png\">Sign In</button>",
-                        "scope" : [
-                            "openid"
-                        ],
-                        "authenticationIdKey" : "sub",
-                        "clientId" : "openidm",
-                        "clientSecret" : "openidm",
-                        "authorizationEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/ameren/authorize",
-                        "tokenEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/ameren/access_token",
-                        "endSessionEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/realms/root/realms/ameren/connect/endSession",
-                        "wellKnownEndpoint" : "https://login.dev-walter.amerentest.com/oauth2/ameren/.well-known/openid-configuration",
-                        "redirectUri" : "https://openidm.dev-walter.amerentest.com:443",
-                        "configClass" : "org.forgerock.oauth.clients.oidc.OpenIDConnectClientConfiguration",
-                        "displayIcon" : "forgerock",
-                        "enabled" : true
-                    },
-                    "queryOnResource" : "system/ldap/account"
-                },
-                "enabled" : false
             }
         ]
     }
