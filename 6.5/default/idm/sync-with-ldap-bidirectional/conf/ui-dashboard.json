@@ -2,8 +2,24 @@
     "dashboard" : {
         "widgets" : [
             {
-                "type": "Welcome",
-                "size": "large"
+                "type" : "quickStart",
+                "size" : "medium",
+                "cards" : [
+                    {
+                        "name" : "dashboard.quickStart.viewProfile",
+                        "icon" : "fa-user",
+                        "href" : "#profile/details"
+                    },
+                    {
+                        "name" : "dashboard.quickStart.changePassword",
+                        "icon" : "fa-lock",
+                        "href" : "#signinandsecurity/password/"
+                    }
+                ]
+            },
+            {
+                "type" : "notifications",
+                "size" : "x-small"
             }
         ]
     },

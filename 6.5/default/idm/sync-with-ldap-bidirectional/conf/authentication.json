@@ -1,4 +1,4 @@
- {
+{
     "serverAuthContext" : {
         "sessionModule" : {
             "name" : "JWT_SESSION",
@@ -6,8 +6,7 @@
                 "maxTokenLifeMinutes" : 120,
                 "tokenIdleTimeMinutes" : 30,
                 "sessionOnly" : true,
-                "isHttpOnly" : true,
-                "enableDynamicRoles" : false
+                "isHttpOnly" : true
             }
         },
         "authModules" : [
@@ -17,9 +16,7 @@
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
                     "password" : "anonymous",
-                    "defaultUserRoles" : [
-                        "internal/role/openidm-reg"
-                    ]
+                    "defaultUserRoles" : [ "internal/role/openidm-reg" ]
                 },
                 "enabled" : true
             },
@@ -35,11 +32,11 @@
                     "propertyMapping" : {
                         "authenticationId" : "username",
                         "userCredential" : "password",
-                        "userRoles" : "authzRoles"
+                        "effectiveUserRoles" : "effectiveAuthzRoles"
                     },
                     "defaultUserRoles" : [ ]
                 },
-                "enabled" : true
+                "enabled" : false
             },
             {
                 "name" : "INTERNAL_USER",
@@ -52,6 +49,24 @@
                         "userRoles" : "authzRoles"
                     },
                     "defaultUserRoles" : [ ]
+                },
+                "enabled" : true
+            },
+            {
+                "name" : "PASSTHROUGH",
+                "properties" : {
+                    "augmentSecurityContext": {
+                        "type" : "text/javascript",
+                        "file" : "auth/populateAsManagedUser.js"
+                    },
+                    "queryOnResource" : "system/ldap/account",
+                    "propertyMapping" : {
+                        "authenticationId" : "uid"
+                    },
+                    "managedUserLink" : "systemLdapAccounts_managedUser",
+                    "defaultUserRoles" : [
+                        "internal/role/openidm-authorized"
+                    ]
                 },
                 "enabled" : true
             },
@@ -79,7 +94,7 @@
                     "username" : "&{openidm.prometheus.username}",
                     "password" : "&{openidm.prometheus.password}",
                     "defaultUserRoles" : [
-                        "&{openidm.prometheus.role}"
+                        "internal/role/openidm-prometheus"
                     ]
                 },
                 "enabled" : true
