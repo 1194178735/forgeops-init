@@ -32,11 +32,11 @@
                     "propertyMapping" : {
                         "authenticationId" : "username",
                         "userCredential" : "password",
-                        "userRoles" : "authzRoles"
+                        "effectiveUserRoles" : "effectiveAuthzRoles"
                     },
                     "defaultUserRoles" : [ ]
                 },
-                "enabled" : true
+                "enabled" : false
             },
             {
                 "name" : "INTERNAL_USER",
