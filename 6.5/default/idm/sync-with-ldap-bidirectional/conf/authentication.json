@@ -16,7 +16,21 @@
                 "properties" : {
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
-                    "password" : "anonymous",
+                    "password" : {
+                        "$crypto" : {
+                            "type" : "x-simple-encryption",
+                            "value" : {
+                                "cipher" : "AES/CBC/PKCS5Padding",
+                                "stableId" : "openidm-sym-default",
+                                "salt" : "2FY6aPRg/XevKym8dTl3dg==",
+                                "data" : "v9OpVriijKunoApa8iyE/A==",
+                                "keySize" : 16,
+                                "purpose" : "idm.config.encryption",
+                                "iv" : "PPPPWei4Wlc98OIy6fK3DQ==",
+                                "mac" : "GMJIBXUdZ0nOBvcKns8uSA=="
+                            }
+                        }
+                    },
                     "defaultUserRoles" : [
                         "internal/role/openidm-reg"
                     ]
@@ -127,9 +141,23 @@
                         ],
                         "authenticationIdKey" : "sub",
                         "clientId" : "openidm",
-                        "clientSecret" : "openidm",
-                        "authorizationEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/realms/root/realms/ameren/authorize",
-                        "tokenEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/realms/root/realms/ameren/access_token",
+                        "clientSecret" : {
+                            "$crypto" : {
+                                "type" : "x-simple-encryption",
+                                "value" : {
+                                    "cipher" : "AES/CBC/PKCS5Padding",
+                                    "stableId" : "openidm-sym-default",
+                                    "salt" : "1L+CSZiIVNZFOGCuGtdkPQ==",
+                                    "data" : "+VSbW2VVcu+Jn9mJ5g1bzA==",
+                                    "keySize" : 16,
+                                    "purpose" : "idm.config.encryption",
+                                    "iv" : "IQBODHoH//DTZWTpzPfULQ==",
+                                    "mac" : "XHbrWl4uv8Xrq0wTUqYRQA=="
+                                }
+                            }
+                        },
+                        "authorizationEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/ameren/authorize",
+                        "tokenEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/ameren/access_token",
                         "endSessionEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/realms/root/realms/ameren/connect/endSession",
                         "wellKnownEndpoint" : "https://login.dev-ssl.amerentest.com/oauth2/ameren/.well-known/openid-configuration",
                         "redirectUri" : "https://openidm.dev-ssl.amerentest.com:443",
