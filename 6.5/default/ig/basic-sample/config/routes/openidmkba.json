@@ -1,0 +1,16 @@
+{
+  "name" : "openidmkba",
+  "baseURI" : "https://openidm.prod.amerentest.com/",
+  "condition" : "${matches(request.uri.path, '^/openidm/config/selfservice.kba')}",
+  "monitor" : false,
+  "heap" : [ {
+    "name" : "AmService-1",
+    "type" : "AmService",
+    "config" : {
+      "url" : "https://login.prod.amerentest.com",
+      "realm" : "/ameren",
+      "ssoTokenHeader" : "iPlanetDirectoryPro"
+    }
+  } ],
+  "handler" : "ReverseProxyHandler"
+}
